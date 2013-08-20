@@ -35,41 +35,41 @@ void Max31855::_read(void) {
 
 	select();
 #if defined(MAX31855_DEBUG)
-	Serial.print("MAX31855: Selected\n");
+	Serial.print(F("MAX31855: Selected\n"));
 #endif	
 
 	c = SPI.transfer(0x00);
 	data += (uint32_t) c << 24;
 #if defined(MAX31855_DEBUG)
-	Serial.print("MAX31855: SPI Read Byte 0 => ");
+	Serial.print(F("MAX31855: SPI Read Byte 0 => "));
 	Serial.println(c,BIN);
 #endif
 
 	c = SPI.transfer(0x00);
 	data += (uint32_t) c << 16;
 #if defined(MAX31855_DEBUG)
-	Serial.print("MAX31855: SPI Read Byte 1 => ");
+	Serial.print(F("MAX31855: SPI Read Byte 1 => "));
 	Serial.println(c,BIN);
 #endif
 
 	c = SPI.transfer(0x00);
 	data += (uint32_t) c << 8;
 #if defined(MAX31855_DEBUG)
-	Serial.print("MAX31855: SPI Read Byte 2 => ");
+	Serial.print(F("MAX31855: SPI Read Byte 2 => "));
 	Serial.println(c,BIN);
 #endif
 
 	c = SPI.transfer(0x00);
 	data += (uint32_t) c;
 #if defined(MAX31855_DEBUG)
-	Serial.print("MAX31855: SPI Read Byte 3 => ");
+	Serial.print(F("MAX31855: SPI Read Byte 3 => "));
 	Serial.println(c,BIN);
 #endif
 
 	deselect();
 #if defined(MAX31855_DEBUG)
-	Serial.print("MAX31855: Deselected\n");
-	Serial.print("MAX31855: 32-bit data = ");
+	Serial.print(F("MAX31855: Deselected\n"));
+	Serial.print(F("MAX31855: 32-bit data = "));
 	Serial.println(data, HEX);
 #endif	
 
