@@ -33,15 +33,20 @@ class Max31855 {
 		uint8_t       _pin_select;
 		uint32_t      _data;
 		Max31855_Info _info;
+		uint8_t       _samples; /* (number of samples - 1) to take, if oversampling */
 
 		/** Read 4 bytes from SPI and store temp and error
 		 *  info into _info structure.
 		 */
 		void _read(void);
 
+		void _read(uint8_t samples);
+
 	public:
 		/** Constructor, initialise SPI on selected pin */
 		Max31855(uint8_t pin);
+
+		Max31855(uint8_t pin, uint8_t samples);
 
 		/** Select chip (bring CS pin low) */
 		void select(void);
@@ -51,6 +56,11 @@ class Max31855 {
 
 		/** Performs a _read() */
 		void update(void);
+
+		/** Read, but don't process any results */
+		void dummy_read(uint8_t count);
+
+		void set_oversampling(uint16_t samples);
 
 		/** Returns _info */
 		Max31855_Info get_info(void);
@@ -63,6 +73,9 @@ class Max31855 {
 
 		/** Return eror code from _info */
 		uint8_t get_error(void);
+
+		/** Read data with oversampling */
+		void read_average(uint8_t samples, uint16_t delay);
 };
 
 #endif

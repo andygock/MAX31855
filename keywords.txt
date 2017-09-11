@@ -1,0 +1,25 @@
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Max31855	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+get_cold_junction_temperature	KEYWORD2
+get_temperature	KEYWORD2
+get_info	KEYWORD2
+get_error	KEYWORD2
+deselect	KEYWORD2
+dummy_read	KEYWORD2
+read_average	KEYWORD2
+select	KEYWORD2
+set_oversampling	KEYWORD2
+update	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
